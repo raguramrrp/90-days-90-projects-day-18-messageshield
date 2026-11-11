@@ -273,9 +273,6 @@ See [docs/TESTING.md](docs/TESTING.md) for full details.
 
 ---
 
-
----
-
 ## 16. License & Attribution
 
 Released under the [MIT License](LICENSE).  
