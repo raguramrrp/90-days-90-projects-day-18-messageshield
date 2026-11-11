@@ -1,0 +1,772 @@
+{
+  "dataset": {
+    "name": "UCI SMS Spam Collection v.1",
+    "source_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+    "license": "CC BY 4.0 / Public Research Corpus (Almeida et al., 2011)",
+    "raw_rows": 5574,
+    "missing_or_invalid_rows": 0,
+    "duplicate_rows_removed": 414,
+    "clean_rows": 5160,
+    "ham_count": 4518,
+    "spam_count": 642,
+    "spam_ratio": 0.1244,
+    "train_rows": 4128,
+    "test_rows": 1032,
+    "train_spam_count": 514,
+    "test_spam_count": 128,
+    "split_strategy": "Stratified 80/20 split after exact deduplication (seed=42)"
+  },
+  "trained_at": "2026-11-11T06:21:44.689533+00:00",
+  "random_seed": 42,
+  "selected_model": "multinomial_nb",
+  "selection_rationale": "Multinomial Naive Bayes (TF-IDF) selected based on held-out F1-score (0.9339) and precision (0.9912) to minimize false positives.",
+  "calibration_note": "Raw TF-IDF classifier scores reflect statistical similarity to the 2011 UCI SMS corpus and are not calibrated real-world fraud probabilities.",
+  "models": {
+    "logistic_regression": {
+      "model_key": "logistic_regression",
+      "display_name": "Logistic Regression (TF-IDF)",
+      "default_threshold": 0.5,
+      "accuracy": 0.9835,
+      "precision": 0.9912,
+      "recall": 0.875,
+      "f1_score": 0.9295,
+      "roc_auc": 0.9976,
+      "confusion_matrix": {
+        "matrix": [
+          [
+            903,
+            1
+          ],
+          [
+            16,
+            112
+          ]
+        ],
+        "tn": 903,
+        "fp": 1,
+        "fn": 16,
+        "tp": 112,
+        "labels": [
+          "Legitimate (Ham)",
+          "Spam"
+        ]
+      },
+      "classification_report": {
+        "ham": {
+          "precision": 0.9825897714907508,
+          "recall": 0.9988938053097345,
+          "f1-score": 0.9906747120131651,
+          "support": 904.0
+        },
+        "spam": {
+          "precision": 0.9911504424778761,
+          "recall": 0.875,
+          "f1-score": 0.9294605809128631,
+          "support": 128.0
+        },
+        "accuracy": 0.9835271317829457,
+        "macro avg": {
+          "precision": 0.9868701069843134,
+          "recall": 0.9369469026548672,
+          "f1-score": 0.9600676464630141,
+          "support": 1032.0
+        },
+        "weighted avg": {
+          "precision": 0.9836515601403166,
+          "recall": 0.9835271317829457,
+          "f1-score": 0.9830822616441354,
+          "support": 1032.0
+        }
+      },
+      "threshold_curve": [
+        {
+          "threshold": 0.1,
+          "accuracy": 0.9709,
+          "precision": 0.8224,
+          "recall": 0.9766,
+          "f1_score": 0.8929,
+          "true_negatives": 877,
+          "false_positives": 27,
+          "false_negatives": 3,
+          "true_positives": 125
+        },
+        {
+          "threshold": 0.15,
+          "accuracy": 0.9835,
+          "precision": 0.9173,
+          "recall": 0.9531,
+          "f1_score": 0.9349,
+          "true_negatives": 893,
+          "false_positives": 11,
+          "false_negatives": 6,
+          "true_positives": 122
+        },
+        {
+          "threshold": 0.2,
+          "accuracy": 0.9845,
+          "precision": 0.9308,
+          "recall": 0.9453,
+          "f1_score": 0.938,
+          "true_negatives": 895,
+          "false_positives": 9,
+          "false_negatives": 7,
+          "true_positives": 121
+        },
+        {
+          "threshold": 0.25,
+          "accuracy": 0.9835,
+          "precision": 0.944,
+          "recall": 0.9219,
+          "f1_score": 0.9328,
+          "true_negatives": 897,
+          "false_positives": 7,
+          "false_negatives": 10,
+          "true_positives": 118
+        },
+        {
+          "threshold": 0.3,
+          "accuracy": 0.9874,
+          "precision": 0.9752,
+          "recall": 0.9219,
+          "f1_score": 0.9478,
+          "true_negatives": 901,
+          "false_positives": 3,
+          "false_negatives": 10,
+          "true_positives": 118
+        },
+        {
+          "threshold": 0.35,
+          "accuracy": 0.9874,
+          "precision": 0.9832,
+          "recall": 0.9141,
+          "f1_score": 0.9474,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 11,
+          "true_positives": 117
+        },
+        {
+          "threshold": 0.4,
+          "accuracy": 0.9845,
+          "precision": 0.9828,
+          "recall": 0.8906,
+          "f1_score": 0.9344,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 14,
+          "true_positives": 114
+        },
+        {
+          "threshold": 0.45,
+          "accuracy": 0.9845,
+          "precision": 0.9828,
+          "recall": 0.8906,
+          "f1_score": 0.9344,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 14,
+          "true_positives": 114
+        },
+        {
+          "threshold": 0.5,
+          "accuracy": 0.9835,
+          "precision": 0.9912,
+          "recall": 0.875,
+          "f1_score": 0.9295,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 16,
+          "true_positives": 112
+        },
+        {
+          "threshold": 0.55,
+          "accuracy": 0.9826,
+          "precision": 0.9911,
+          "recall": 0.8672,
+          "f1_score": 0.925,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 17,
+          "true_positives": 111
+        },
+        {
+          "threshold": 0.6,
+          "accuracy": 0.9797,
+          "precision": 0.9908,
+          "recall": 0.8438,
+          "f1_score": 0.9114,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 20,
+          "true_positives": 108
+        },
+        {
+          "threshold": 0.65,
+          "accuracy": 0.9767,
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1_score": 0.8966,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 24,
+          "true_positives": 104
+        },
+        {
+          "threshold": 0.7,
+          "accuracy": 0.9758,
+          "precision": 1.0,
+          "recall": 0.8047,
+          "f1_score": 0.8918,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 25,
+          "true_positives": 103
+        },
+        {
+          "threshold": 0.75,
+          "accuracy": 0.9729,
+          "precision": 1.0,
+          "recall": 0.7812,
+          "f1_score": 0.8772,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 28,
+          "true_positives": 100
+        },
+        {
+          "threshold": 0.8,
+          "accuracy": 0.968,
+          "precision": 1.0,
+          "recall": 0.7422,
+          "f1_score": 0.852,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 33,
+          "true_positives": 95
+        },
+        {
+          "threshold": 0.85,
+          "accuracy": 0.9612,
+          "precision": 1.0,
+          "recall": 0.6875,
+          "f1_score": 0.8148,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 40,
+          "true_positives": 88
+        },
+        {
+          "threshold": 0.9,
+          "accuracy": 0.9399,
+          "precision": 1.0,
+          "recall": 0.5156,
+          "f1_score": 0.6804,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 62,
+          "true_positives": 66
+        }
+      ],
+      "top_features": {
+        "spam_indicators": [
+          {
+            "feature": "phonetoken",
+            "weight": 9.92
+          },
+          {
+            "feature": "numtoken",
+            "weight": 7.0671
+          },
+          {
+            "feature": "urltoken",
+            "weight": 6.4299
+          },
+          {
+            "feature": "currencytoken",
+            "weight": 6.2996
+          },
+          {
+            "feature": "to numtoken",
+            "weight": 5.0446
+          },
+          {
+            "feature": "call phonetoken",
+            "weight": 4.9304
+          },
+          {
+            "feature": "call",
+            "weight": 4.7544
+          },
+          {
+            "feature": "text",
+            "weight": 4.5302
+          },
+          {
+            "feature": "free",
+            "weight": 4.5215
+          },
+          {
+            "feature": "txt",
+            "weight": 4.3259
+          },
+          {
+            "feature": "!",
+            "weight": 4.0377
+          },
+          {
+            "feature": "your",
+            "weight": 3.9983
+          },
+          {
+            "feature": "2",
+            "weight": 3.8892
+          },
+          {
+            "feature": "to",
+            "weight": 3.6564
+          },
+          {
+            "feature": "reply",
+            "weight": 3.633
+          }
+        ],
+        "ham_indicators": [
+          {
+            "feature": "i",
+            "weight": -5.3214
+          },
+          {
+            "feature": "my",
+            "weight": -2.4943
+          },
+          {
+            "feature": "me",
+            "weight": -2.4508
+          },
+          {
+            "feature": "gt",
+            "weight": -1.8019
+          },
+          {
+            "feature": "lt",
+            "weight": -1.7972
+          },
+          {
+            "feature": "ok",
+            "weight": -1.7475
+          },
+          {
+            "feature": "that",
+            "weight": -1.7388
+          },
+          {
+            "feature": "lt gt",
+            "weight": -1.6319
+          },
+          {
+            "feature": "it",
+            "weight": -1.5878
+          },
+          {
+            "feature": "he",
+            "weight": -1.4593
+          },
+          {
+            "feature": "then",
+            "weight": -1.4431
+          },
+          {
+            "feature": "got",
+            "weight": -1.3665
+          },
+          {
+            "feature": "but",
+            "weight": -1.3389
+          },
+          {
+            "feature": "da",
+            "weight": -1.3204
+          },
+          {
+            "feature": "in",
+            "weight": -1.2799
+          }
+        ]
+      },
+      "vocabulary_size": 11102
+    },
+    "multinomial_nb": {
+      "model_key": "multinomial_nb",
+      "display_name": "Multinomial Naive Bayes (TF-IDF)",
+      "default_threshold": 0.5,
+      "accuracy": 0.9845,
+      "precision": 0.9912,
+      "recall": 0.8828,
+      "f1_score": 0.9339,
+      "roc_auc": 0.9875,
+      "confusion_matrix": {
+        "matrix": [
+          [
+            903,
+            1
+          ],
+          [
+            15,
+            113
+          ]
+        ],
+        "tn": 903,
+        "fp": 1,
+        "fn": 15,
+        "tp": 113,
+        "labels": [
+          "Legitimate (Ham)",
+          "Spam"
+        ]
+      },
+      "classification_report": {
+        "ham": {
+          "precision": 0.9836601307189542,
+          "recall": 0.9988938053097345,
+          "f1-score": 0.991218441273326,
+          "support": 904.0
+        },
+        "spam": {
+          "precision": 0.9912280701754386,
+          "recall": 0.8828125,
+          "f1-score": 0.9338842975206612,
+          "support": 128.0
+        },
+        "accuracy": 0.9844961240310077,
+        "macro avg": {
+          "precision": 0.9874441004471963,
+          "recall": 0.9408531526548672,
+          "f1-score": 0.9625513693969936,
+          "support": 1032.0
+        },
+        "weighted avg": {
+          "precision": 0.9845987898763476,
+          "recall": 0.9844961240310077,
+          "f1-score": 0.9841072296450886,
+          "support": 1032.0
+        }
+      },
+      "threshold_curve": [
+        {
+          "threshold": 0.1,
+          "accuracy": 0.9748,
+          "precision": 0.8696,
+          "recall": 0.9375,
+          "f1_score": 0.9023,
+          "true_negatives": 886,
+          "false_positives": 18,
+          "false_negatives": 8,
+          "true_positives": 120
+        },
+        {
+          "threshold": 0.15,
+          "accuracy": 0.9835,
+          "precision": 0.9302,
+          "recall": 0.9375,
+          "f1_score": 0.9339,
+          "true_negatives": 895,
+          "false_positives": 9,
+          "false_negatives": 8,
+          "true_positives": 120
+        },
+        {
+          "threshold": 0.2,
+          "accuracy": 0.9884,
+          "precision": 0.9677,
+          "recall": 0.9375,
+          "f1_score": 0.9524,
+          "true_negatives": 900,
+          "false_positives": 4,
+          "false_negatives": 8,
+          "true_positives": 120
+        },
+        {
+          "threshold": 0.25,
+          "accuracy": 0.9874,
+          "precision": 0.9675,
+          "recall": 0.9297,
+          "f1_score": 0.9482,
+          "true_negatives": 900,
+          "false_positives": 4,
+          "false_negatives": 9,
+          "true_positives": 119
+        },
+        {
+          "threshold": 0.3,
+          "accuracy": 0.9874,
+          "precision": 0.9832,
+          "recall": 0.9141,
+          "f1_score": 0.9474,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 11,
+          "true_positives": 117
+        },
+        {
+          "threshold": 0.35,
+          "accuracy": 0.9874,
+          "precision": 0.9832,
+          "recall": 0.9141,
+          "f1_score": 0.9474,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 11,
+          "true_positives": 117
+        },
+        {
+          "threshold": 0.4,
+          "accuracy": 0.9874,
+          "precision": 0.9832,
+          "recall": 0.9141,
+          "f1_score": 0.9474,
+          "true_negatives": 902,
+          "false_positives": 2,
+          "false_negatives": 11,
+          "true_positives": 117
+        },
+        {
+          "threshold": 0.45,
+          "accuracy": 0.9855,
+          "precision": 0.9913,
+          "recall": 0.8906,
+          "f1_score": 0.9383,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 14,
+          "true_positives": 114
+        },
+        {
+          "threshold": 0.5,
+          "accuracy": 0.9845,
+          "precision": 0.9912,
+          "recall": 0.8828,
+          "f1_score": 0.9339,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 15,
+          "true_positives": 113
+        },
+        {
+          "threshold": 0.55,
+          "accuracy": 0.9826,
+          "precision": 0.9911,
+          "recall": 0.8672,
+          "f1_score": 0.925,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 17,
+          "true_positives": 111
+        },
+        {
+          "threshold": 0.6,
+          "accuracy": 0.9826,
+          "precision": 0.9911,
+          "recall": 0.8672,
+          "f1_score": 0.925,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 17,
+          "true_positives": 111
+        },
+        {
+          "threshold": 0.65,
+          "accuracy": 0.9816,
+          "precision": 0.991,
+          "recall": 0.8594,
+          "f1_score": 0.9205,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 18,
+          "true_positives": 110
+        },
+        {
+          "threshold": 0.7,
+          "accuracy": 0.9806,
+          "precision": 0.9909,
+          "recall": 0.8516,
+          "f1_score": 0.916,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 19,
+          "true_positives": 109
+        },
+        {
+          "threshold": 0.75,
+          "accuracy": 0.9787,
+          "precision": 0.9907,
+          "recall": 0.8359,
+          "f1_score": 0.9068,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 21,
+          "true_positives": 107
+        },
+        {
+          "threshold": 0.8,
+          "accuracy": 0.9767,
+          "precision": 0.9906,
+          "recall": 0.8203,
+          "f1_score": 0.8974,
+          "true_negatives": 903,
+          "false_positives": 1,
+          "false_negatives": 23,
+          "true_positives": 105
+        },
+        {
+          "threshold": 0.85,
+          "accuracy": 0.9748,
+          "precision": 1.0,
+          "recall": 0.7969,
+          "f1_score": 0.887,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 26,
+          "true_positives": 102
+        },
+        {
+          "threshold": 0.9,
+          "accuracy": 0.9738,
+          "precision": 1.0,
+          "recall": 0.7891,
+          "f1_score": 0.8821,
+          "true_negatives": 904,
+          "false_positives": 0,
+          "false_negatives": 27,
+          "true_positives": 101
+        }
+      ],
+      "top_features": {
+        "spam_indicators": [
+          {
+            "feature": "call phonetoken",
+            "weight": 5.3044
+          },
+          {
+            "feature": "to numtoken",
+            "weight": 5.1746
+          },
+          {
+            "feature": "phonetoken",
+            "weight": 5.0401
+          },
+          {
+            "feature": "numtoken",
+            "weight": 4.7446
+          },
+          {
+            "feature": "claim",
+            "weight": 4.7365
+          },
+          {
+            "feature": "prize",
+            "weight": 4.5804
+          },
+          {
+            "feature": "150p",
+            "weight": 4.3002
+          },
+          {
+            "feature": "nokia",
+            "weight": 4.2256
+          },
+          {
+            "feature": "your mobile",
+            "weight": 4.1866
+          },
+          {
+            "feature": "have won",
+            "weight": 4.1632
+          },
+          {
+            "feature": "phonetoken now",
+            "weight": 4.1285
+          },
+          {
+            "feature": "currencytoken cash",
+            "weight": 4.1227
+          },
+          {
+            "feature": "on phonetoken",
+            "weight": 4.1002
+          },
+          {
+            "feature": "to claim",
+            "weight": 4.0927
+          },
+          {
+            "feature": "urgent !",
+            "weight": 4.091
+          }
+        ],
+        "ham_indicators": [
+          {
+            "feature": "gt",
+            "weight": -3.7151
+          },
+          {
+            "feature": "lt",
+            "weight": -3.7129
+          },
+          {
+            "feature": "lt gt",
+            "weight": -3.6217
+          },
+          {
+            "feature": "lor",
+            "weight": -3.5123
+          },
+          {
+            "feature": "da",
+            "weight": -3.4533
+          },
+          {
+            "feature": "he",
+            "weight": -3.4427
+          },
+          {
+            "feature": "i ll",
+            "weight": -3.4142
+          },
+          {
+            "feature": "\u00fc",
+            "weight": -3.4024
+          },
+          {
+            "feature": "i",
+            "weight": -3.2438
+          },
+          {
+            "feature": "she",
+            "weight": -3.0857
+          },
+          {
+            "feature": "later",
+            "weight": -3.0734
+          },
+          {
+            "feature": "my",
+            "weight": -2.9837
+          },
+          {
+            "feature": "lol",
+            "weight": -2.9679
+          },
+          {
+            "feature": "anything",
+            "weight": -2.9235
+          },
+          {
+            "feature": "come",
+            "weight": -2.896
+          }
+        ]
+      },
+      "vocabulary_size": 11102
+    }
+  }
+}

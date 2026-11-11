@@ -1,0 +1,368 @@
+{
+  "version": "1.0.0",
+  "description": "Modular India-focused scam rules, scam intent patterns, promotional cues, defensive guards, and suspicious URL indicators for MessageShield.",
+  "india_scam_rules": [
+    {
+      "id": "upi_collect_manipulation",
+      "label": "UPI Collect Request / PIN Manipulation",
+      "category": "Financial Scam",
+      "severity": "critical",
+      "weight": 0.54,
+      "description": "Attempts to trick users into approving a UPI collect request or entering their UPI PIN to receive money or cashback.",
+      "patterns": [
+        "\\b(?:accept|approve|click|open)\\b.{0,40}\\b(?:upi|collect|mandate|request)\\b.{0,40}\\b(?:receive|get|claim|credit|cashback|refund)\\b",
+        "\\b(?:enter|type|put|submit)\\b.{0,30}\\b(?:upi\\s*pin|mpin)\\b.{0,40}\\b(?:receive|claim|cashback|refund|prize|credit)\\b",
+        "\\b(?:receive|get|claim)\\b.{0,35}\\b(?:rs\\.?|inr|₹)\\s*\\d+[\\d,]*\\b.{0,35}\\b(?:upi\\s*pin|collect\\s*request|scan\\s*qr)\\b",
+        "\\bscan\\s*(?:this|the)?\\s*qr\\b.{0,35}\\b(?:receive|get|claim|refund|cashback)\\b"
+      ]
+    },
+    {
+      "id": "fake_bank_kyc",
+      "label": "Fake Bank / Wallet KYC Suspension Threat",
+      "category": "Phishing",
+      "severity": "high",
+      "weight": 0.42,
+      "description": "Threatens bank account, PAN, Aadhaar, or wallet suspension unless KYC is updated urgently via a link or mobile number.",
+      "patterns": [
+        "\\b(?:kyc|pan\\s*card|pan|aadhaar|re-?kyc)\\b.{0,45}\\b(?:expired?|pending|suspend(?:ed)?|block(?:ed)?|deactivat(?:ed|e)|freeze|frozen|hold|update\\s*(?:now|immediately|today))\\b",
+        "\\b(?:account|a/c|netbanking|yono|wallet|card)\\b.{0,45}\\b(?:will\\s*be\\s*(?:blocked|suspended|closed|frozen|deactivated)|on\\s*hold)\\b.{0,50}\\b(?:kyc|verify|update|click|http|www\\.|call)\\b",
+        "\\b(?:update|complete|verify)\\s*(?:your)?\\s*(?:bank|samplebank|demobank|sbi|hdfc|icici|axis|paytm|phonepe|pan)?\\s*kyc\\b.{0,45}\\b(?:http|www\\.|bit\\.ly|tinyurl|click|link|immediately|today)\\b"
+      ]
+    },
+    {
+      "id": "electricity_disconnection",
+      "label": "Electricity Disconnection Threat",
+      "category": "Impersonation",
+      "severity": "critical",
+      "weight": 0.48,
+      "description": "False utility threat claiming power will be disconnected tonight unless the user calls an unverified mobile number or updates last month's bill.",
+      "patterns": [
+        "\\b(?:electricity|power|meter|light)\\b.{0,45}\\b(?:disconnect(?:ed)?|cut\\s*off)\\b.{0,50}\\b(?:tonight|today|within\\s*\\d+\\s*(?:hr|hrs|hour|hours|min)|\\d{1,2}[:.]\\d{2}\\s*(?:pm|am)|call|contact|whatsapp)\\b",
+        "\\b(?:electricity|power)\\b.{0,50}\\b(?:previous|last)\\s*month\\s*bill\\s*(?:was\\s*)?not\\s*updat(?:ed|e)\\b",
+        "\\b(?:call|contact|whatsapp)\\b.{0,30}\\b(?:electricity\\s*officer|lineman|sdo|eb\\s*office)\\b.{0,25}\\b(?:\\+91[-\\s]?)?(?:[6-9]\\d{9}|00000\\d{5})\\b"
+      ]
+    },
+    {
+      "id": "fake_courier_fee",
+      "label": "Fake Courier / Customs Delivery Fee",
+      "category": "Financial Scam",
+      "severity": "high",
+      "weight": 0.42,
+      "description": "Claims a parcel is held due to incomplete address or customs duty and demands a small online fee or link click.",
+      "patterns": [
+        "\\b(?:parcel|package|courier|shipment|consignment|speed\\s*post|india\\s*post|bluedart|dtdc|delhivery)\\b.{0,55}\\b(?:held|stopped|paused|returned|incomplete\\s*address|customs?|redelivery|clearance)\\b.{0,60}\\b(?:pay|fee|charge|rs\\.?|inr|₹|update|http|www\\.|click|link)\\b",
+        "\\b(?:pay|remit)\\b.{0,25}\\b(?:rs\\.?|inr|₹)\\s*(?:5|10|15|20|25|30|49|50|99|100)\\b.{0,45}\\b(?:delivery|redelivery|customs|parcel|warehouse|address)\\b"
+      ]
+    },
+    {
+      "id": "job_registration_fee",
+      "label": "Job Registration / Task Deposit Scam",
+      "category": "Financial Scam",
+      "severity": "high",
+      "weight": 0.40,
+      "description": "Offers unrealistic daily income or remote jobs while asking for a registration fee, training deposit, or WhatsApp/Telegram contact.",
+      "patterns": [
+        "\\b(?:part[\\s-]*time|work\\s*from\\s*home|wfh|online\\s*(?:job|task|typing)|hiring|vacancy)\\b.{0,65}\\b(?:earn|income|salary|daily)\\b.{0,35}(?:rs\\.?|inr|₹)\\s*\\d[\\d,]{2,8}\\b",
+        "\\b(?:job|offer|interview|joining|appointment|work\\s*from\\s*home|wfh|part[\\s-]*time)\\b.{0,120}\\b(?:registration|security|training|processing|kit|activation|verification)\\s*(?:fee|charge|deposit)\\b",
+        "\\b(?:pay|remit|deposit)\\b.{0,35}(?:rs\\.?|inr|₹)\\s*\\d[\\d,]*\\b.{0,45}\\b(?:registration|security|training|processing|kit|activation)\\s*(?:fee|charge|deposit)\\b",
+        "\\b(?:like|review|rate|rating)\\s*(?:youtube|sample|videos|hotels|tasks)\\b.{0,55}\\b(?:telegram|whatsapp|online)\\b"
+      ]
+    },
+    {
+      "id": "government_subsidy_impersonation",
+      "label": "Government Scheme / Subsidy Impersonation",
+      "category": "Impersonation",
+      "severity": "high",
+      "weight": 0.40,
+      "description": "Impersonates government welfare schemes, subsidies, or tax refunds with unverified registration links or fee demands.",
+      "patterns": [
+        "\\b(?:pm[\\s-]*kisan|lpg\\s*subsidy|gas\\s*subsidy|ayushman|e-?shram|ration\\s*card|ladli|free\\s*laptop|yojana|tax\\s*refund|income\\s*tax\\s*refund)\\b.{0,55}\\b(?:claim|apply|approved|credited|register|verify|kyc|fee|http|www\\.|click|link)\\b",
+        "\\b(?:govt|government)\\b.{0,40}\\b(?:subsidy|scheme|grant|relief\\s*fund)\\b.{0,45}\\b(?:click|register|link|http|pay|fee)\\b"
+      ]
+    },
+    {
+      "id": "fake_loan_investment",
+      "label": "Fake Loan / Guaranteed Investment Offer",
+      "category": "Financial Scam",
+      "severity": "high",
+      "weight": 0.38,
+      "description": "Promises instant zero-CIBIL loans with upfront processing fees or guaranteed high-yield stock/crypto tips.",
+      "patterns": [
+        "\\b(?:instant\\s*loan|pre-?approved\\s*loan|personal\\s*loan|no\\s*cibil|low\\s*cibil)\\b.{0,60}\\b(?:processing\\s*fee|advance\\s*fee|file\\s*charge|disburse(?:d|ment)?\\s*in\\s*\\d+\\s*min|whatsapp|http|click)\\b",
+        "\\b(?:guaranteed|assured|100%)\\b.{0,35}\\b(?:return|profit|daily\\s*income|trading|intraday|crypto|stock\\s*tip)\\b.{0,45}\\b(?:join|telegram|whatsapp|invest|http)\\b"
+      ]
+    },
+    {
+      "id": "otp_theft",
+      "label": "OTP / Credential Harvesting Attempt",
+      "category": "OTP / Credential Theft",
+      "severity": "critical",
+      "weight": 0.50,
+      "description": "Directly pressures the recipient to share, reply with, or enter an OTP, PIN, CVV, password, or install remote screen-sharing software.",
+      "patterns": [
+        "\\b(?:share|send|reply|forward|tell|give|provide|enter|confirm)\\b.{0,30}\\b(?:your|the|this)?\\s*(?:otp|one[\\s-]*time[\\s-]*password|cvv|atm\\s*pin|upi\\s*pin|mpin|password|passcode)\\b",
+        "\\b(?:otp|pin|cvv|mpin)\\b.{0,25}\\b(?:to\\s*(?:cancel|stop|verify|claim|receive|executive|agent)|required\\s*for\\s*(?:refund|cashback|verification))\\b",
+        "\\b(?:download|install)\\b.{0,35}\\b(?:anydesk|teamviewer|quicksupport|rustdesk|screen[\\s-]*share|[a-z0-9_.-]+\\.apk)\\b"
+      ],
+      "excluded_if_matches": [
+        "\\b(?:never|do\\s*not|don't)\\s+(?:ever\\s+)?(?:share|disclose|give|forward)\\b.{0,25}\\b(?:otp|pin|cvv|password)\\b"
+      ]
+    },
+    {
+      "id": "fake_reward_lottery",
+      "label": "Fake Prize / Cashback / Lottery Claim",
+      "category": "Fake Reward",
+      "severity": "high",
+      "weight": 0.42,
+      "description": "Claims the recipient won an unexpected prize, lottery, scratch card, or cashback requiring link verification or a claim fee.",
+      "patterns": [
+        "\\b(?:congratulations|congrats|lucky\\s*(?:winner|draw|user)|won|winner)\\b.{0,55}\\b(?:prize|lottery|jackpot|car|iphone|smartphone|gift|reward|cashback|rs\\.?\\s*\\d+|inr\\s*\\d+|₹\\s*\\d+)\\b.{0,55}\\b(?:claim|collect|click|link|http|fee|tax|whatsapp|call)\\b",
+        "\\b(?:claim\\s*(?:your|the)\\s*(?:reward|prize|bonus|cashback|gift\\s*voucher))\\b.{0,45}\\b(?:http|www\\.|click|today|now|within)\\b"
+      ]
+    },
+    {
+      "id": "banking_impersonation",
+      "label": "Bank / Card / Digital Wallet Impersonation",
+      "category": "Impersonation",
+      "severity": "high",
+      "weight": 0.40,
+      "description": "Impersonates a bank, card issuer, or payment platform requesting urgent verification via a link or mobile contact.",
+      "patterns": [
+        "\\b(?:dear\\s*(?:customer|user|valued\\s*member))\\b.{0,45}\\b(?:samplebank|demobank|sbi|hdfc|icici|axis|kotak|pnb|canara|paytm|phonepe|gpay|rbi|credit\\s*card|debit\\s*card)\\b.{0,55}\\b(?:blocked|suspended|deactivated|compromised|unusual\\s*login|verify\\s*(?:here|now|immediately))\\b.{0,45}\\b(?:http|www\\.|bit\\.ly|tinyurl|click)\\b"
+      ]
+    }
+  ],
+  "promotional_patterns": [
+    "\\b(?:flat|up\\s*to)\\s*\\d{1,2}%\\s*off\\b",
+    "\\b(?:use\\s*(?:promo\\s*)?code|coupon\\s*code)\\s+[A-Z0-9]{3,16}\\b",
+    "\\b(?:weekend|festive|flash|clearance|mega)\\s*sale\\b",
+    "\\b(?:reply|sms)\\s*stop\\s*to\\s*(?:opt\\s*out|unsubscribe)\\b",
+    "\\bt\\s*&\\s*c\\s*apply\\b",
+    "\\b(?:shop\\s*now|order\\s*now|limited\\s*period\\s*offer)\\b"
+  ],
+  "benign_context_patterns": [
+    {
+      "id": "defensive_otp_warning",
+      "label": "Standard security warning against sharing OTP/PIN",
+      "pattern": "\\b(?:never|do\\s*not|don't)\\s+(?:ever\\s+)?(?:share|disclose|give|forward)\\b.{0,30}\\b(?:otp|pin|cvv|password|mpin)\\b"
+    },
+    {
+      "id": "legitimate_bank_txn_alert",
+      "label": "Standard account debit/credit transaction alert",
+      "pattern": "\\b(?:a/c|acct|account)\\s*(?:xx+\\d{3,4}|xx+|\\*+\\d{3,4}|ending\\s*\\d{3,4})\\b.{0,45}\\b(?:debited|credited)\\b.{0,40}\\b(?:rs\\.?|inr|₹)\\s*[\\d,]+(?:\\.\\d{1,2})?\\b"
+    },
+    {
+      "id": "legitimate_dispute_helpline",
+      "label": "Standard bank dispute guidance (call toll-free / official app)",
+      "pattern": "\\bif\\s*not\\s*(?:done|initiated|authorized)\\s*by\\s*you\\b.{0,50}\\b(?:1800|toll[\\s-]*free|official\\s*(?:bank\\s*)?app|branch)\\b"
+    },
+    {
+      "id": "legitimate_appointment_reminder",
+      "label": "Standard appointment or booking reminder",
+      "pattern": "\\b(?:appointment|consultation|booking|reservation)\\b.{0,50}\\b(?:scheduled|confirmed)\\s*(?:for|on|at)\\b"
+    },
+    {
+      "id": "legitimate_utility_statement",
+      "label": "Standard utility bill notice without disconnection threat",
+      "pattern": "\\b(?:bill\\s*(?:for|amount|generated)|due\\s*date)\\b.{0,50}\\b(?:official\\s+(?:[a-z]+\\s+)?(?:portal|app)|bbps)\\b"
+    }
+  ],
+  "intent_rules": [
+    {
+      "intent": "Money transfer request",
+      "patterns": [
+        "\\b(?:pay|transfer|send|remit|deposit)\\b.{0,35}\\b(?:rs\\.?|inr|₹|usd|\\$)\\s*\\d+",
+        "\\b(?:upi\\s*collect|approve\\s*(?:the\\s*)?(?:collect|request|mandate)|scan\\s*qr.{0,25}receive)\\b",
+        "\\b(?:processing|registration|customs|clearance|security)\\s*(?:fee|charge|deposit)\\b"
+      ]
+    },
+    {
+      "intent": "Credential collection",
+      "patterns": [
+        "\\b(?:enter|verify|update|submit|confirm)\\b.{0,35}\\b(?:password|pin|cvv|card\\s*details|pan|aadhaar|netbanking|login)\\b",
+        "\\b(?:kyc\\s*(?:update|verification)|re-?kyc)\\b.{0,45}\\b(?:http|www\\.|click|link)\\b"
+      ]
+    },
+    {
+      "intent": "OTP collection",
+      "patterns": [
+        "\\b(?:share|send|reply|forward|tell|give|enter|provide)\\b.{0,30}\\b(?:otp|one[\\s-]*time[\\s-]*password|verification\\s*code)\\b"
+      ],
+      "excluded_if_matches": [
+        "\\b(?:never|do\\s*not|don't)\\s+(?:ever\\s+)?(?:share|disclose|give|forward)\\b.{0,25}\\b(?:otp|pin|cvv|password)\\b"
+      ]
+    },
+    {
+      "intent": "Reward manipulation",
+      "patterns": [
+        "\\b(?:won|winner|congratulations|lucky\\s*draw|scratch\\s*card|unclaimed\\s*(?:reward|cashback|bonus)|free\\s*gift)\\b",
+        "\\b(?:claim\\s*(?:your|the)\\s*(?:reward|prize|cashback|voucher))\\b"
+      ]
+    },
+    {
+      "intent": "Urgency or fear manipulation",
+      "patterns": [
+        "\\b(?:within\\s*\\d+\\s*(?:min|mins|minutes|hr|hrs|hours)|tonight|immediately|urgent(?:ly)?|act\\s*now|last\\s*chance|final\\s*notice|today\\s*only)\\b",
+        "\\b(?:account\\s*(?:will\\s*be\\s*)?(?:blocked|suspended|frozen|closed)|power\\s*(?:will\\s*be\\s*)?disconnected|legal\\s*action)\\b"
+      ]
+    },
+    {
+      "intent": "Account verification",
+      "patterns": [
+        "\\b(?:verify|re-?verify|authenticate|update|reactivate)\\s*(?:your)?\\s*(?:account|kyc|pan|aadhaar|wallet|card|profile)\\b"
+      ]
+    },
+    {
+      "intent": "Fake delivery fee",
+      "patterns": [
+        "\\b(?:parcel|package|courier|shipment|customs|redelivery|india\\s*post|bluedart|dtdc|delhivery)\\b.{0,55}\\b(?:fee|charge|held|incomplete\\s*address|customs|pay|update\\s*address)\\b"
+      ]
+    },
+    {
+      "intent": "Job registration fee",
+      "patterns": [
+        "\\b(?:job|hiring|work\\s*from\\s*home|part[\\s-]*time|vacancy|offer\\s*letter)\\b.{0,60}\\b(?:fee|deposit|charge|earn\\s*(?:rs\\.?|inr|₹)?\\s*\\d{3,6})\\b"
+      ]
+    },
+    {
+      "intent": "Investment or loan promotion",
+      "patterns": [
+        "\\b(?:instant\\s*loan|pre-?approved\\s*loan|no\\s*cibil|guaranteed\\s*return|intraday\\s*tip|crypto\\s*profit|double\\s*your\\s*money)\\b"
+      ]
+    },
+    {
+      "intent": "Impersonation",
+      "patterns": [
+        "\\b(?:electricity\\s*officer|lineman|rbi|income\\s*tax|customs\\s*department|cyber\\s*cell|govt\\s*subsidy|pm[\\s-]*kisan|customer\\s*care)\\b.{0,55}\\b(?:call|whatsapp|click|http|disconnect|blocked|arrest|fine)\\b",
+        "\\b(?:samplebank|demobank|sbi|hdfc|icici|axis|kotak|paytm|phonepe|india\\s*post|parcel\\s*service)\\b.{0,50}\\b(?:http|bit\\.ly|tinyurl|(?:\\+91[-\\s]?)?(?:[6-9]\\d{9}|00000\\d{5}))\\b"
+      ]
+    }
+  ],
+  "highlight_phrases": [
+    { "pattern": "\\baccount\\s+will\\s+be\\s+(?:blocked|suspended|frozen|deactivated)\\b", "reason": "Account suspension threat", "severity": "high" },
+    { "pattern": "\\b(?:kyc|pan)\\s+(?:has\\s+)?(?:expired|pending|suspended)\\b", "reason": "Urgent KYC / identity claim", "severity": "high" },
+    { "pattern": "\\b(?:verify|update|act|call)\\s+(?:immediately|now|today)\\b", "reason": "Artificial urgency pressure", "severity": "medium" },
+    { "pattern": "\\bwithin\\s+\\d+\\s+(?:min|mins|minutes|hr|hrs|hours)\\b", "reason": "Short deadline coercion", "severity": "medium" },
+    { "pattern": "\\b(?:share|send|reply|forward|give|enter)\\s+(?:your\\s+)?(?:\\d+-digit\\s+)?(?:otp|cvv|upi\\s*pin|mpin|password)\\b", "reason": "Sensitive OTP / PIN request", "severity": "critical" },
+    { "pattern": "\\b(?:approve|accept)\\s+(?:the\\s+)?(?:pending\\s+)?upi\\s+collect\\s+request\\b", "reason": "UPI collect request trap", "severity": "critical" },
+    { "pattern": "\\bclaim\\s+(?:your|the)\\s+(?:reward|prize|cashback|bonus)\\b", "reason": "Reward bait phrase", "severity": "high" },
+    { "pattern": "\\b(?:pay|remit)\\s+(?:rs\\.?|inr|₹)\\s*\\d+[\\d,]*(?:\\s+(?:redelivery|customs|processing|registration|security)\\s+(?:fee|charge))?\\b", "reason": "Fee / payment demand", "severity": "high" },
+    { "pattern": "\\b(?:registration|processing|security|clearance)\\s+(?:fee|charge|deposit)\\b", "reason": "Upfront fee indicator", "severity": "high" },
+    { "pattern": "\\b(?:power|electricity)\\s+will\\s+be\\s+disconnected\\b", "reason": "Utility disconnection threat", "severity": "critical" },
+    { "pattern": "\\b(?:anydesk|teamviewer|quicksupport|rustdesk|remote\\s+screen[\\s-]*share\\s+app|[a-z0-9_.-]+\\.apk)\\b", "reason": "Remote access app or side-loaded APK request", "severity": "critical" },
+    { "pattern": "\\bclick\\s+(?:here|this\\s+link|below)\\b", "reason": "Action link prompt", "severity": "medium" }
+  ],
+  "url_rules": {
+    "shortener_domains": [
+      "bit.ly",
+      "tinyurl.com",
+      "t.co",
+      "cutt.ly",
+      "rb.gy",
+      "is.gd",
+      "ow.ly",
+      "goo.gl",
+      "shorturl.at",
+      "rebrand.ly",
+      "tiny.cc",
+      "buff.ly",
+      "surl.li",
+      "v.gd",
+      "clck.ru",
+      "short.gy",
+      "bitly.com",
+      "tiny.one"
+    ],
+    "suspicious_tlds": [
+      "xyz",
+      "top",
+      "click",
+      "tk",
+      "ml",
+      "ga",
+      "cf",
+      "gq",
+      "icu",
+      "vip",
+      "buzz",
+      "work",
+      "cam",
+      "loan",
+      "win",
+      "support",
+      "online",
+      "site",
+      "shop",
+      "club",
+      "info",
+      "live",
+      "rest"
+    ],
+    "suspicious_keywords_in_url": [
+      "kyc",
+      "verify",
+      "update",
+      "secure",
+      "login",
+      "signin",
+      "account",
+      "unblock",
+      "reactivate",
+      "reward",
+      "claim",
+      "cashback",
+      "refund",
+      "customs",
+      "parcel",
+      "redelivery",
+      "upi",
+      "pin",
+      "otp",
+      "pan-update",
+      "aadhaar"
+    ],
+    "suspicious_query_params": [
+      "otp",
+      "pin",
+      "mpin",
+      "cvv",
+      "kyc",
+      "token",
+      "session",
+      "redirect",
+      "next",
+      "url",
+      "return_to",
+      "verify",
+      "pan",
+      "aadhaar"
+    ],
+    "brand_lookalike_targets": {
+      "sbi": ["sbi.co.in", "onlinesbi.sbi", "sbi.bank.in"],
+      "hdfc": ["hdfcbank.com"],
+      "icici": ["icicibank.com"],
+      "axis": ["axisbank.com"],
+      "kotak": ["kotak.com"],
+      "pnb": ["pnbindia.in"],
+      "paytm": ["paytm.com"],
+      "phonepe": ["phonepe.com"],
+      "gpay": ["pay.google.com"],
+      "npci": ["npci.org.in"],
+      "bhim": ["bhimupi.org.in"],
+      "indiapost": ["indiapost.gov.in"],
+      "bluedart": ["bluedart.com"],
+      "dtdc": ["dtdc.in"],
+      "delhivery": ["delhivery.com"],
+      "uidai": ["uidai.gov.in"],
+      "epfo": ["epfindia.gov.in"],
+      "incometax": ["incometax.gov.in"],
+      "irctc": ["irctc.co.in"],
+      "rbi": ["rbi.org.in"],
+      "amazon": ["amazon.in", "amazon.com"],
+      "flipkart": ["flipkart.com"],
+      "samplebank": ["samplebank.example"],
+      "demobank": ["demobank.example"],
+      "sampleparcel": ["sampleparcel.example"]
+    }
+  }
+}

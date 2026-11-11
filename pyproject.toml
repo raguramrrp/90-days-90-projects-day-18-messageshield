@@ -1,0 +1,10 @@
+[project]
+name = "textvigil"
+version = "1.0.0"
+description = "Explainable Message Threat Detection & Personal Safety Assistant"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

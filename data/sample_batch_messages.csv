@@ -1,0 +1,16 @@
+id,sender,message,expected_note
+1,JD-CLINIC-S,Reminder: Your dental consultation at Sample Care Clinic is scheduled for tomorrow at 10:30 AM. Reply YES to confirm.,Legitimate appointment
+2,AD-DMOBNK-T,"A/c XX0000 debited for INR 1,450.00 on 11-11-26 at DemoMart via Ref No. 000000000000. If not done by you, call 1800-000-0000 or block card in official SampleBank app. Never share OTP.",Legitimate bank alert
+3,VK-DMOBSK-P,DemoMart Weekend Sale: Flat 20% off on fresh groceries above Rs.999. Use code DEMO20 in the DemoMart app before Sunday. T&C apply. Reply STOP to opt out.,Promotional offer
+4,VK-DMOKYC,"Dear customer, your SampleBank account KYC has expired today. Your account will be blocked within 2 hours. Update KYC immediately at http://samplebank-kyc.xyz/verify",Fake KYC phishing
+5,+91 00000 00003,Sample Parcel Service: Your parcel DEMO000001 is held at sorting hub due to incomplete address. Pay Rs.25 redelivery fee within 12 hrs at http://parcel-redelivery-demo.xyz/pay,Fake courier fee + mobile spoof
+6,HR-TASK,"Part-time Work From Home! Earn Rs.3,500 daily by rating sample videos online. Pay Rs.499 registration fee to activate account. Message +91-0000000001",Job registration scam
+7,DMOCBK,"Congratulations! You received Rs.4,999 UPI cashback reward. Approve the pending UPI collect request and enter your UPI PIN to claim before tonight.",UPI collect scam
+8,JX-DISCOM-S,"SamplePower Electricity: Bill for Consumer No. 00000000 for Oct 2026 is Rs.1,120. Due date 25-11-2026. Pay via official portal or BBPS app.",Legitimate utility notice
+9,+91 00000 00002,URGENT: Your electricity power will be disconnected tonight at 9:30 PM because previous month bill was not updated. Call electricity officer immediately on +91 00000 00002.,Electricity disconnection + mobile spoof
+10,DMOWIN,Lucky Winner! You won a flagship smartphone in festive draw. Claim your reward now at http://198.51.100.22/claim?token=demo99,Fake reward + IP link
+11,+91 00000 00001,"Congrats! Claim your Rs.4,999 festive cashback right now using your verified payout link: upi://pay?pa=demo-cashback@exampleupi&pn=Demo%20Reward&am=4999&cu=INR",UPI deep-link payment bait
+12,JM-DMOKYC-P,"Dear customer, your SampleBank account KYC has expired today. Your account will be blocked within 2 hours. Update KYC immediately at http://samplebank-fresh.top/verify",Campaign rotated domain + -P misuse
+13,JX-DMOLNK-P,Urgent: Re-verify your S​a​m​p​l​eBank profile with O​T​P before midnight at https://samplebank.example@demo-redirect.xyz/auth,Zero-width + @ userinfo redirect
+14,+91 00000 00002,SampleBank Alert: Unusual login from unknown device. Secure your profile now at https://ѕamplebank-secure.xyz/login or xn--smplbnk-k4a.top before block.,Cyrillic homoglyph + punycode + mobile spoof
+15,+91 00000 00005,"Traffic E-Challan Notice (Demo): Vehicle fine Rs.2,000 pending. Download Demo_Challan.apk from http://demo-challan-pay.icu/app or install a remote screen-share app to settle now.",Fake E-Challan .apk + remote screen-share trap
