@@ -273,14 +273,10 @@ See [docs/TESTING.md](docs/TESTING.md) for full details.
 
 ---
 
-## 16. Learning Outcomes & Resume Keywords
-
-- **Learning Outcomes:** Preventing TF-IDF train/test leakage across duplicate SMS rows; balancing precision vs false positives on legitimate banking alerts; building a responsive phone-preview React UI without duplicate DOM trees; integrating local OpenCV + Tesseract OCR with human-in-the-loop confirmation.
-- **Keywords:** `Python`, `FastAPI`, `React`, `TypeScript`, `Tailwind CSS`, `scikit-learn`, `TF-IDF`, `Logistic Regression`, `Multinomial Naive Bayes`, `Explainable ML`, `Cybersecurity`, `Phishing Detection`, `Tesseract OCR`, `SQLite`, `Pytest`.
 
 ---
 
-## 17. License & Attribution
+## 16. License & Attribution
 
 Released under the [MIT License](LICENSE).  
 UCI SMS Spam Collection dataset attributed to Almeida, T.A., Gómez Hidalgo, J.M., & Yamakami, A. (2011).
